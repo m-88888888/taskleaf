@@ -232,7 +232,7 @@ conftest.c:6:35: error: no member named 'pvio' in 'struct st_net'; did you mean 
 int s = (char *)&((MYSQL*)0)->net.pvio - (char *)0;
                                   ^~~~
                                   vio
-/usr/local/opt/mysql@5.7/include/mysql/mysql_com.h:333:8: note: 'vio' declared here
+/usr/local/opt/mysql@5.7/include/mysql/mysql_com.h:345:8: note: 'vio' declared here
   Vio *vio;
        ^
 1 error generated.
