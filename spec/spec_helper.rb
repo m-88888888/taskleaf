@@ -17,7 +17,7 @@ require "capybara/rspec"
 
 RSpec.configure do |config|
   config.before(:each, type: :system) do
-    deriven_by :selenium_chrome_headlless
+    driven_by :selenium_chrome_headless
   end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
