@@ -7311,3 +7311,580 @@ Completed 200 OK in 163ms (Views: 149.5ms | ActiveRecord: 3.5ms)
 /Users/hachi/environment/taskleaf/vendor/bundle/ruby/2.6.0/gems/sidekiq-6.0.7/lib/sidekiq/processor.rb:68:in `run'
 /Users/hachi/environment/taskleaf/vendor/bundle/ruby/2.6.0/gems/sidekiq-6.0.7/lib/sidekiq/util.rb:15:in `watchdog'
 /Users/hachi/environment/taskleaf/vendor/bundle/ruby/2.6.0/gems/sidekiq-6.0.7/lib/sidekiq/util.rb:24:in `block in safe_thread'
+Started GET "/tasks" for ::1 at 2020-04-21 21:27:02 +0900
+  [1m[35m (1.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ vendor/bundle/ruby/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ vendor/bundle/ruby/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(DISTINCT `tasks`.`id`) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/index.html.slim:18
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  DISTINCT `tasks`.`id` AS count_column FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 0) subquery_for_count[0m
+  ↳ app/views/tasks/index.html.slim:19
+  [1m[36mTask Load (3.6ms)[0m  [1m[34mSELECT  DISTINCT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 0[0m
+  ↳ app/views/tasks/index.html.slim:19
+  Rendered tasks/index.html.slim within layouts/application (533.6ms)
+Completed 200 OK in 1701ms (Views: 1488.5ms | ActiveRecord: 18.4ms)
+
+
+Started GET "/tasks" for ::1 at 2020-04-21 21:28:40 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(DISTINCT `tasks`.`id`) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/index.html.slim:18
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  DISTINCT `tasks`.`id` AS count_column FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 0) subquery_for_count[0m
+  ↳ app/views/tasks/index.html.slim:19
+  [1m[36mTask Load (1.4ms)[0m  [1m[34mSELECT  DISTINCT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 0[0m
+  ↳ app/views/tasks/index.html.slim:19
+  Rendered tasks/index.html.slim within layouts/application (195.5ms)
+Completed 200 OK in 698ms (Views: 685.4ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/tasks" for ::1 at 2020-04-21 21:29:36 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(DISTINCT `tasks`.`id`) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/index.html.slim:18
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  DISTINCT `tasks`.`id` AS count_column FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 0) subquery_for_count[0m
+  ↳ app/views/tasks/index.html.slim:19
+  [1m[36mTask Load (1.8ms)[0m  [1m[34mSELECT  DISTINCT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 0[0m
+  ↳ app/views/tasks/index.html.slim:19
+  Rendered tasks/index.html.slim within layouts/application (168.0ms)
+Completed 200 OK in 560ms (Views: 543.7ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/tasks" for ::1 at 2020-04-21 21:33:12 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(DISTINCT `tasks`.`id`) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/index.html.slim:18
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  DISTINCT `tasks`.`id` AS count_column FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 0) subquery_for_count[0m
+  ↳ app/views/tasks/index.html.slim:19
+  [1m[36mTask Load (1.9ms)[0m  [1m[34mSELECT  DISTINCT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 0[0m
+  ↳ app/views/tasks/index.html.slim:19
+  Rendered tasks/index.html.slim within layouts/application (191.6ms)
+Completed 200 OK in 439ms (Views: 383.9ms | ActiveRecord: 15.7ms)
+
+
+Started DELETE "/tasks/1" for ::1 at 2020-04-21 21:33:16 +0900
+Processing by TasksController#destroy as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mTask Load (4.0ms)[0m  [1m[34mSELECT  `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 AND `tasks`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/tasks_controller.rb:69
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[36mTask Destroy (2.0ms)[0m  [1m[31mDELETE FROM `tasks` WHERE `tasks`.`id` = 1[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[36mActiveStorage::Attachment Load (5.0ms)[0m  [1m[34mSELECT  `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 1 AND `active_storage_attachments`.`record_type` = 'Task' AND `active_storage_attachments`.`name` = 'image' LIMIT 1[0m
+  ↳ app/controllers/tasks_controller.rb:48
+Completed 204 No Content in 48ms (ActiveRecord: 19.3ms)
+
+
+Started GET "/tasks" for ::1 at 2020-04-21 21:33:20 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT COUNT(DISTINCT `tasks`.`id`) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/index.html.slim:18
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  DISTINCT `tasks`.`id` AS count_column FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 0) subquery_for_count[0m
+  ↳ app/views/tasks/index.html.slim:19
+  [1m[36mTask Load (1.7ms)[0m  [1m[34mSELECT  DISTINCT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 0[0m
+  ↳ app/views/tasks/index.html.slim:19
+  Rendered tasks/index.html.slim within layouts/application (145.6ms)
+Completed 200 OK in 251ms (Views: 239.6ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/tasks" for ::1 at 2020-04-21 21:36:17 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(DISTINCT `tasks`.`id`) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/index.html.slim:18
+  [1m[35m (9.6ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  DISTINCT `tasks`.`id` AS count_column FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 0) subquery_for_count[0m
+  ↳ app/views/tasks/index.html.slim:19
+  [1m[36mTask Load (1.2ms)[0m  [1m[34mSELECT  DISTINCT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 0[0m
+  ↳ app/views/tasks/index.html.slim:19
+  Rendered tasks/index.html.slim within layouts/application (523.2ms)
+Completed 200 OK in 847ms (Views: 818.8ms | ActiveRecord: 13.3ms)
+
+
+Started DELETE "/tasks/2" for ::1 at 2020-04-21 21:36:21 +0900
+Processing by TasksController#destroy as JS
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mTask Load (1.1ms)[0m  [1m[34mSELECT  `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 AND `tasks`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/tasks_controller.rb:69
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[36mTask Destroy (0.7ms)[0m  [1m[31mDELETE FROM `tasks` WHERE `tasks`.`id` = 2[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT  `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 2 AND `active_storage_attachments`.`record_type` = 'Task' AND `active_storage_attachments`.`name` = 'image' LIMIT 1[0m
+  ↳ app/controllers/tasks_controller.rb:48
+Completed 204 No Content in 16ms (ActiveRecord: 5.7ms)
+
+
+Started DELETE "/tasks/3" for ::1 at 2020-04-21 21:36:25 +0900
+Processing by TasksController#destroy as JS
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT  `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 AND `tasks`.`id` = 3 LIMIT 1[0m
+  ↳ app/controllers/tasks_controller.rb:69
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[36mTask Destroy (0.7ms)[0m  [1m[31mDELETE FROM `tasks` WHERE `tasks`.`id` = 3[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[36mActiveStorage::Attachment Load (1.4ms)[0m  [1m[34mSELECT  `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 3 AND `active_storage_attachments`.`record_type` = 'Task' AND `active_storage_attachments`.`name` = 'image' LIMIT 1[0m
+  ↳ app/controllers/tasks_controller.rb:48
+Completed 204 No Content in 16ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/tasks" for ::1 at 2020-04-21 22:41:22 +0900
+  [1m[35m (0.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ vendor/bundle/ruby/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT COUNT(DISTINCT `tasks`.`id`) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/index.html.slim:18
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  DISTINCT `tasks`.`id` AS count_column FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 0) subquery_for_count[0m
+  ↳ app/views/tasks/index.html.slim:19
+  [1m[36mTask Load (3.5ms)[0m  [1m[34mSELECT  DISTINCT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 0[0m
+  ↳ app/views/tasks/index.html.slim:19
+  Rendered tasks/index.html.slim within layouts/application (143.8ms)
+Completed 200 OK in 328ms (Views: 258.9ms | ActiveRecord: 15.5ms)
+
+
+Started DELETE "/tasks/4" for ::1 at 2020-04-21 22:41:26 +0900
+Processing by TasksController#destroy as JS
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT  `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 AND `tasks`.`id` = 4 LIMIT 1[0m
+  ↳ app/controllers/tasks_controller.rb:68
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[36mTask Destroy (0.9ms)[0m  [1m[31mDELETE FROM `tasks` WHERE `tasks`.`id` = 4[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT  `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 4 AND `active_storage_attachments`.`record_type` = 'Task' AND `active_storage_attachments`.`name` = 'image' LIMIT 1[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  Rendering tasks/destroy.js.erb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/destroy.js.erb:4
+  Rendered tasks/destroy.js.erb (3.3ms)
+Completed 200 OK in 66ms (Views: 11.2ms | ActiveRecord: 11.4ms)
+
+
+Started DELETE "/tasks/5" for ::1 at 2020-04-21 22:42:50 +0900
+Processing by TasksController#destroy as JS
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mTask Load (4.9ms)[0m  [1m[34mSELECT  `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 AND `tasks`.`id` = 5 LIMIT 1[0m
+  ↳ app/controllers/tasks_controller.rb:68
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[36mTask Destroy (8.3ms)[0m  [1m[31mDELETE FROM `tasks` WHERE `tasks`.`id` = 5[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[35m (8.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[36mActiveStorage::Attachment Load (3.2ms)[0m  [1m[34mSELECT  `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 5 AND `active_storage_attachments`.`record_type` = 'Task' AND `active_storage_attachments`.`name` = 'image' LIMIT 1[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  Rendering tasks/destroy.js.erb
+  [1m[35m (8.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/destroy.js.erb:4
+  Rendered tasks/destroy.js.erb (12.7ms)
+Completed 200 OK in 86ms (Views: 19.8ms | ActiveRecord: 38.1ms)
+
+
+Started GET "/tasks" for ::1 at 2020-04-21 22:43:42 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT COUNT(DISTINCT `tasks`.`id`) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/index.html.slim:18
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  DISTINCT `tasks`.`id` AS count_column FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 0) subquery_for_count[0m
+  ↳ app/views/tasks/index.html.slim:19
+  [1m[36mTask Load (5.0ms)[0m  [1m[34mSELECT  DISTINCT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 0[0m
+  ↳ app/views/tasks/index.html.slim:19
+  Rendered tasks/index.html.slim within layouts/application (130.0ms)
+Completed 200 OK in 312ms (Views: 294.0ms | ActiveRecord: 11.2ms)
+
+
+Started DELETE "/tasks/6" for ::1 at 2020-04-21 22:43:45 +0900
+Processing by TasksController#destroy as JS
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mTask Load (3.2ms)[0m  [1m[34mSELECT  `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 AND `tasks`.`id` = 6 LIMIT 1[0m
+  ↳ app/controllers/tasks_controller.rb:68
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[36mTask Destroy (0.6ms)[0m  [1m[31mDELETE FROM `tasks` WHERE `tasks`.`id` = 6[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[36mActiveStorage::Attachment Load (1.7ms)[0m  [1m[34mSELECT  `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 6 AND `active_storage_attachments`.`record_type` = 'Task' AND `active_storage_attachments`.`name` = 'image' LIMIT 1[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  `active_storage_blobs`.* FROM `active_storage_blobs` WHERE `active_storage_blobs`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[36mActiveStorage::Attachment Destroy (1.2ms)[0m  [1m[31mDELETE FROM `active_storage_attachments` WHERE `active_storage_attachments`.`id` = 2[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:48
+Completed 500 Internal Server Error in 232ms (ActiveRecord: 19.6ms)
+
+
+  
+Redis::CannotConnectError (Error connecting to Redis on 127.0.0.1:6379 (Errno::ECONNREFUSED)):
+  
+app/controllers/tasks_controller.rb:48:in `destroy'
+Started GET "/tasks/6" for ::1 at 2020-04-21 22:43:55 +0900
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mTask Load (1.9ms)[0m  [1m[34mSELECT  `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 AND `tasks`.`id` = 6 LIMIT 1[0m
+  ↳ app/controllers/tasks_controller.rb:68
+Completed 404 Not Found in 21ms (ActiveRecord: 8.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Task with 'id'=6 [WHERE `tasks`.`user_id` = ?]):
+  
+app/controllers/tasks_controller.rb:68:in `set_task'
+Started GET "/tasks" for ::1 at 2020-04-21 22:44:03 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(DISTINCT `tasks`.`id`) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/index.html.slim:18
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  DISTINCT `tasks`.`id` AS count_column FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 0) subquery_for_count[0m
+  ↳ app/views/tasks/index.html.slim:19
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT  DISTINCT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 0[0m
+  ↳ app/views/tasks/index.html.slim:19
+  Rendered tasks/index.html.slim within layouts/application (100.2ms)
+Completed 200 OK in 251ms (Views: 242.1ms | ActiveRecord: 3.9ms)
+
+
+Started DELETE "/tasks/7" for ::1 at 2020-04-21 22:44:08 +0900
+Processing by TasksController#destroy as JS
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT  `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 AND `tasks`.`id` = 7 LIMIT 1[0m
+  ↳ app/controllers/tasks_controller.rb:68
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[36mTask Destroy (0.7ms)[0m  [1m[31mDELETE FROM `tasks` WHERE `tasks`.`id` = 7[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[36mActiveStorage::Attachment Load (1.6ms)[0m  [1m[34mSELECT  `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 7 AND `active_storage_attachments`.`record_type` = 'Task' AND `active_storage_attachments`.`name` = 'image' LIMIT 1[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  Rendering tasks/destroy.js.erb
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/destroy.js.erb:4
+  Rendered tasks/destroy.js.erb (4.6ms)
+Completed 200 OK in 59ms (Views: 17.3ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/tasks" for ::1 at 2020-04-21 22:44:24 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(DISTINCT `tasks`.`id`) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/index.html.slim:18
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  DISTINCT `tasks`.`id` AS count_column FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 0) subquery_for_count[0m
+  ↳ app/views/tasks/index.html.slim:19
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT  DISTINCT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 0[0m
+  ↳ app/views/tasks/index.html.slim:19
+  Rendered tasks/index.html.slim within layouts/application (155.5ms)
+Completed 200 OK in 256ms (Views: 243.5ms | ActiveRecord: 4.5ms)
+
+
+Started DELETE "/tasks/8" for ::1 at 2020-04-21 22:44:28 +0900
+Processing by TasksController#destroy as JS
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT  `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 AND `tasks`.`id` = 8 LIMIT 1[0m
+  ↳ app/controllers/tasks_controller.rb:68
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[36mTask Destroy (0.5ms)[0m  [1m[31mDELETE FROM `tasks` WHERE `tasks`.`id` = 8[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[36mActiveStorage::Attachment Load (2.9ms)[0m  [1m[34mSELECT  `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 8 AND `active_storage_attachments`.`record_type` = 'Task' AND `active_storage_attachments`.`name` = 'image' LIMIT 1[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  Rendering tasks/destroy.js.erb
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/destroy.js.erb:4
+  Rendered tasks/destroy.js.erb (5.3ms)
+Completed 200 OK in 56ms (Views: 18.2ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/?page=5" for ::1 at 2020-04-21 22:44:32 +0900
+Processing by TasksController#index as HTML
+  Parameters: {"page"=>"5"}
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT COUNT(DISTINCT `tasks`.`id`) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/index.html.slim:18
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  DISTINCT `tasks`.`id` AS count_column FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 100) subquery_for_count[0m
+  ↳ app/views/tasks/index.html.slim:19
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT  DISTINCT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 100[0m
+  ↳ app/views/tasks/index.html.slim:19
+  Rendered tasks/index.html.slim within layouts/application (128.2ms)
+Completed 200 OK in 197ms (Views: 180.3ms | ActiveRecord: 8.9ms)
+
+
+Started DELETE "/tasks/113" for ::1 at 2020-04-21 22:44:38 +0900
+Processing by TasksController#destroy as JS
+  Parameters: {"id"=>"113"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mTask Load (1.1ms)[0m  [1m[34mSELECT  `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 AND `tasks`.`id` = 113 LIMIT 1[0m
+  ↳ app/controllers/tasks_controller.rb:68
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[36mTask Destroy (0.6ms)[0m  [1m[31mDELETE FROM `tasks` WHERE `tasks`.`id` = 113[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 113 AND `active_storage_attachments`.`record_type` = 'Task' AND `active_storage_attachments`.`name` = 'image' LIMIT 1[0m
+  ↳ app/controllers/tasks_controller.rb:48
+  Rendering tasks/destroy.js.erb
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/destroy.js.erb:4
+  Rendered tasks/destroy.js.erb (6.6ms)
+Completed 200 OK in 46ms (Views: 19.4ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/?page=5" for ::1 at 2020-04-21 22:58:13 +0900
+  [1m[35m (0.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ vendor/bundle/ruby/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by TasksController#index as HTML
+  Parameters: {"page"=>"5"}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT `tasks`.`id`) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/index.html.slim:18
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  DISTINCT `tasks`.`id` AS count_column FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 100) subquery_for_count[0m
+  ↳ app/views/tasks/index.html.slim:19
+  [1m[36mTask Load (1.0ms)[0m  [1m[34mSELECT  DISTINCT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 100[0m
+  ↳ app/views/tasks/index.html.slim:19
+  Rendered tasks/index.html.slim within layouts/application (148.3ms)
+Completed 500 Internal Server Error in 1056ms (ActiveRecord: 7.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `javascript_pack_tag' for #<#<Class:0x00007fb6e0c48468>:0x00007fb6dcf89810>):
+     7:     = csp_meta_tag
+     8:     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+     9:     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    10:     = javascript_pack_tag 'application'
+    11:   body
+    12:     .app-title.navbar.navbar-expand-md.navbar-light.bg-light
+    13:       .navbar-brand Taskleaf
+  
+app/views/layouts/application.html.slim:10:in `_app_views_layouts_application_html_slim___3634690402663910183_70211731581540'
+Started GET "/?page=5" for ::1 at 2020-04-21 22:58:58 +0900
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ vendor/bundle/ruby/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ vendor/bundle/ruby/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by TasksController#index as HTML
+  Parameters: {"page"=>"5"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(DISTINCT `tasks`.`id`) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/index.html.slim:18
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  DISTINCT `tasks`.`id` AS count_column FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 100) subquery_for_count[0m
+  ↳ app/views/tasks/index.html.slim:19
+  [1m[36mTask Load (9.3ms)[0m  [1m[34mSELECT  DISTINCT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 100[0m
+  ↳ app/views/tasks/index.html.slim:19
+  Rendered tasks/index.html.slim within layouts/application (302.1ms)
+Completed 500 Internal Server Error in 1466ms (ActiveRecord: 17.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `javascript_pack_tag' for #<#<Class:0x00007fbdf62583a0>:0x00007fbdf6249620>):
+     7:     = csp_meta_tag
+     8:     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+     9:     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    10:     = javascript_pack_tag 'application'
+    11:   body
+    12:     .app-title.navbar.navbar-expand-md.navbar-light.bg-light
+    13:       .navbar-brand Taskleaf
+  
+app/views/layouts/application.html.slim:10:in `_app_views_layouts_application_html_slim__4385024804119774940_70226953360360'
+Started GET "/?page=5" for ::1 at 2020-04-21 23:00:32 +0900
+Processing by TasksController#index as HTML
+  Parameters: {"page"=>"5"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(DISTINCT `tasks`.`id`) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/index.html.slim:18
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  DISTINCT `tasks`.`id` AS count_column FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 100) subquery_for_count[0m
+  ↳ app/views/tasks/index.html.slim:19
+  [1m[36mTask Load (1.8ms)[0m  [1m[34mSELECT  DISTINCT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 100[0m
+  ↳ app/views/tasks/index.html.slim:19
+  Rendered tasks/index.html.slim within layouts/application (95.1ms)
+Completed 500 Internal Server Error in 804ms (ActiveRecord: 6.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `javascript_pack_tag' for #<#<Class:0x00007fbdf62583a0>:0x00007fbdfb0224a0>):
+     7:     = csp_meta_tag
+     8:     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+     9:     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    10:     = javascript_pack_tag 'application'
+    11:   body
+    12:     .app-title.navbar.navbar-expand-md.navbar-light.bg-light
+    13:       .navbar-brand Taskleaf
+  
+app/views/layouts/application.html.slim:10:in `_app_views_layouts_application_html_slim__4385024804119774940_70226968482040'
+Started GET "/?page=5" for ::1 at 2020-04-21 23:01:58 +0900
+Processing by TasksController#index as HTML
+  Parameters: {"page"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(DISTINCT `tasks`.`id`) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/index.html.slim:18
+  [1m[35m (5.5ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  DISTINCT `tasks`.`id` AS count_column FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 100) subquery_for_count[0m
+  ↳ app/views/tasks/index.html.slim:19
+  [1m[36mTask Load (8.0ms)[0m  [1m[34mSELECT  DISTINCT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 100[0m
+  ↳ app/views/tasks/index.html.slim:19
+  Rendered tasks/index.html.slim within layouts/application (185.3ms)
+Completed 200 OK in 300ms (Views: 272.0ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/?page=5" for ::1 at 2020-04-21 23:02:13 +0900
+Processing by TasksController#index as HTML
+  Parameters: {"page"=>"5"}
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(DISTINCT `tasks`.`id`) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/index.html.slim:18
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  DISTINCT `tasks`.`id` AS count_column FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 100) subquery_for_count[0m
+  ↳ app/views/tasks/index.html.slim:19
+  [1m[36mTask Load (6.3ms)[0m  [1m[34mSELECT  DISTINCT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 100[0m
+  ↳ app/views/tasks/index.html.slim:19
+  Rendered tasks/index.html.slim within layouts/application (160.0ms)
+Completed 200 OK in 253ms (Views: 230.9ms | ActiveRecord: 12.6ms)
+
+
+Started GET "/?page=5" for ::1 at 2020-04-21 23:02:17 +0900
+Processing by TasksController#index as HTML
+  Parameters: {"page"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(DISTINCT `tasks`.`id`) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/index.html.slim:18
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  DISTINCT `tasks`.`id` AS count_column FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 100) subquery_for_count[0m
+  ↳ app/views/tasks/index.html.slim:19
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT  DISTINCT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 100[0m
+  ↳ app/views/tasks/index.html.slim:19
+  Rendered tasks/index.html.slim within layouts/application (54.8ms)
+Completed 200 OK in 81ms (Views: 74.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/?page=5" for ::1 at 2020-04-21 23:02:25 +0900
+Processing by TasksController#index as HTML
+  Parameters: {"page"=>"5"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT COUNT(DISTINCT `tasks`.`id`) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/index.html.slim:18
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  DISTINCT `tasks`.`id` AS count_column FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 100) subquery_for_count[0m
+  ↳ app/views/tasks/index.html.slim:19
+  [1m[36mTask Load (12.6ms)[0m  [1m[34mSELECT  DISTINCT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 100[0m
+  ↳ app/views/tasks/index.html.slim:19
+  Rendered tasks/index.html.slim within layouts/application (171.6ms)
+Completed 500 Internal Server Error in 770ms (ActiveRecord: 17.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `javascript_pack_tag' for #<#<Class:0x00007fbdf62583a0>:0x00007fbdf7dd5740>):
+     7:     = csp_meta_tag
+     8:     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+     9:     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    10:     = javascript_pack_tag 'application'
+    11:   body
+    12:     .app-title.navbar.navbar-expand-md.navbar-light.bg-light
+    13:       .navbar-brand Taskleaf
+  
+app/views/layouts/application.html.slim:10:in `_app_views_layouts_application_html_slim__4385024804119774940_70226978720600'
+Started GET "/?page=5" for ::1 at 2020-04-21 23:07:04 +0900
+  [1m[35m (0.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ vendor/bundle/ruby/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ vendor/bundle/ruby/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by TasksController#index as HTML
+  Parameters: {"page"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:8
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(DISTINCT `tasks`.`id`) FROM `tasks` WHERE `tasks`.`user_id` = 1[0m
+  ↳ app/views/tasks/index.html.slim:18
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  DISTINCT `tasks`.`id` AS count_column FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 100) subquery_for_count[0m
+  ↳ app/views/tasks/index.html.slim:19
+  [1m[36mTask Load (1.1ms)[0m  [1m[34mSELECT  DISTINCT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 1 LIMIT 25 OFFSET 100[0m
+  ↳ app/views/tasks/index.html.slim:19
+  Rendered tasks/index.html.slim within layouts/application (210.0ms)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/hachi/environment/taskleaf/public/packs
+[Webpacker] Hash: 0fc1f9380af9b3394986
+Version: webpack 4.42.1
+Time: 5413ms
+Built at: 2020/04/21 23:07:15
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-25c7ddf17e946a3e87df.js   1.02 MiB  application  [emitted] [immutable]  application
+js/application-25c7ddf17e946a3e87df.js.map   1.18 MiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-25c7ddf17e946a3e87df.js js/application-25c7ddf17e946a3e87df.js.map
+[./app/javascript/packs/application.js] 24 bytes {application} [built]
+[./app/javascript/taskleaf/hello.js] 251 bytes {application} [built]
+    + 11 hidden modules
+
+Completed 200 OK in 10517ms (Views: 10351.8ms | ActiveRecord: 7.8ms)
+
+
