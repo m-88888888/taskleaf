@@ -1,0 +1,863 @@
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (5.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS `taskleaf_test`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE `taskleaf_test` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS `tasks` CASCADE[0m
+  [1m[35m (33.1ms)[0m  [1m[35mCREATE TABLE `tasks` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(30) NOT NULL, `description` text, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `user_id` bigint NOT NULL,  INDEX `index_tasks_on_user_id`  (`user_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS `users` CASCADE[0m
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255) NOT NULL, `email` varchar(255) NOT NULL, `password_digest` varchar(255) NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `admin` tinyint(1) DEFAULT FALSE NOT NULL, UNIQUE INDEX `index_users_on_email`  (`email`)) ENGINE=InnoDB DEFAULT CHARSET=utf8[0m
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES (20200415124147)[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES
+(20200415055615),
+(20200413105816),
+(20200413230406),
+(20200414122414),
+(20200415080149);
+
+[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'test', '2020-04-15 15:01:35', '2020-04-15 15:01:35')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$EJifWtHHqgZ0eHlcEw/4leBjcefGh.4jMbTWpVEK5/Sk9.Y4lAsHm', '2020-04-15 23:11:21', '2020-04-15 23:11:21')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-15 23:11:22', '2020-04-15 23:11:22', 1)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-16 08:11:22 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (35.0ms)
+Completed 200 OK in 2228ms (Views: 2218.2ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application-6d059d6f59dcd90f5dcda630e3de3d7f24f3f2246b48bf7da55581c1868c0f7a.css" for 127.0.0.1 at 2020-04-16 08:11:25 +0900
+Started GET "/assets/application-4754cca90f897f152786b9c41a39faf8893c503c031056c9d07f896159dc826c.js" for 127.0.0.1 at 2020-04-16 08:11:25 +0900
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$fQViUicB0XDZve8Ss2dOue/pNvZ7m8AtJObvaL0HkCmciaiNAbq0e', '2020-04-15 23:11:50', '2020-04-15 23:11:50')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-15 23:11:50', '2020-04-15 23:11:50', 2)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-16 08:11:51 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (17.4ms)
+Completed 200 OK in 643ms (Views: 633.2ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application-4754cca90f897f152786b9c41a39faf8893c503c031056c9d07f896159dc826c.js" for 127.0.0.1 at 2020-04-16 08:11:51 +0900
+Started GET "/assets/application-6d059d6f59dcd90f5dcda630e3de3d7f24f3f2246b48bf7da55581c1868c0f7a.css" for 127.0.0.1 at 2020-04-16 08:11:51 +0900
+Started POST "/login" for 127.0.0.1 at 2020-04-16 08:11:52 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"email"=>"test@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test@example.com' LIMIT 1[0m
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (0.7ms)
+Completed 200 OK in 6ms (Views: 2.0ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$sV0fEsoyJFI.5AaHOpMpdeiIiKaxXY3RdHztM08VPiM80DiXP0djq', '2020-04-15 23:13:00', '2020-04-15 23:13:00')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-15 23:13:00', '2020-04-15 23:13:00', 3)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-16 08:13:01 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (17.8ms)
+Completed 200 OK in 594ms (Views: 585.6ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application-4754cca90f897f152786b9c41a39faf8893c503c031056c9d07f896159dc826c.js" for 127.0.0.1 at 2020-04-16 08:13:01 +0900
+Started GET "/assets/application-6d059d6f59dcd90f5dcda630e3de3d7f24f3f2246b48bf7da55581c1868c0f7a.css" for 127.0.0.1 at 2020-04-16 08:13:01 +0900
+Started POST "/login" for 127.0.0.1 at 2020-04-16 08:13:02 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"email"=>"a@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'a@example.com' LIMIT 1[0m
+Redirected to http://127.0.0.1:49254/
+Completed 302 Found in 7ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2020-04-16 08:13:02 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 3 ORDER BY `tasks`.`created_at` DESC[0m
+  Rendered tasks/index.html.slim within layouts/application (13.2ms)
+Completed 200 OK in 30ms (Views: 15.8ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$w1s/auguo6Xjgjewe1GmNOgoTQ0fDK0ZLCtT.UOOfTtH.2ISj3qBK', '2020-04-17 09:40:47', '2020-04-17 09:40:47')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.4ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 09:40:47', '2020-04-17 09:40:47', 4)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-17 18:40:51 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (39.4ms)
+Completed 200 OK in 725ms (Views: 714.1ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application-6d059d6f59dcd90f5dcda630e3de3d7f24f3f2246b48bf7da55581c1868c0f7a.css" for 127.0.0.1 at 2020-04-17 18:40:52 +0900
+Started GET "/assets/application-4754cca90f897f152786b9c41a39faf8893c503c031056c9d07f896159dc826c.js" for 127.0.0.1 at 2020-04-17 18:40:52 +0900
+Started POST "/login" for 127.0.0.1 at 2020-04-17 18:40:52 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"email"=>"a@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'a@example.com' LIMIT 1[0m
+Redirected to http://127.0.0.1:53079/
+Completed 302 Found in 11ms (ActiveRecord: 0.7ms)
+Started GET "/" for 127.0.0.1 at 2020-04-17 18:40:52 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 4 ORDER BY `tasks`.`created_at` DESC[0m
+  Rendered tasks/index.html.slim within layouts/application (14.9ms)
+Completed 200 OK in 30ms (Views: 17.6ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$nIQsytZSomsjFWEEXO3Wn.4f3K4N2jeOjhUNGEjmGBcSa5aC4N9Ja', '2020-04-17 09:40:53', '2020-04-17 09:40:53')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 09:40:53', '2020-04-17 09:40:53', 5)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'b@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーB', 'b@example.com', '$2a$04$CJBCIk062O5A7gVUsmNfOeoKjbPRvsyQ7.dbXCMuNP1CKuUO3ku5q', '2020-04-17 09:40:53', '2020-04-17 09:40:53')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$2VyamUV0x6PXXnFRk4BPkeqta9h58wzI4wMaq3CYe.SSHY2G/bUZ6', '2020-04-17 09:46:16', '2020-04-17 09:46:16')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 09:46:16', '2020-04-17 09:46:16', 7)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-17 18:46:18 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (34.0ms)
+Completed 200 OK in 801ms (Views: 791.2ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application-4754cca90f897f152786b9c41a39faf8893c503c031056c9d07f896159dc826c.js" for 127.0.0.1 at 2020-04-17 18:46:19 +0900
+Started GET "/assets/application-6d059d6f59dcd90f5dcda630e3de3d7f24f3f2246b48bf7da55581c1868c0f7a.css" for 127.0.0.1 at 2020-04-17 18:46:19 +0900
+Started POST "/login" for 127.0.0.1 at 2020-04-17 18:46:19 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"email"=>"a@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'a@example.com' LIMIT 1[0m
+Redirected to http://127.0.0.1:53224/
+Completed 302 Found in 8ms (ActiveRecord: 0.5ms)
+Started GET "/" for 127.0.0.1 at 2020-04-17 18:46:20 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 7 ORDER BY `tasks`.`created_at` DESC[0m
+  Rendered tasks/index.html.slim within layouts/application (12.0ms)
+Completed 200 OK in 28ms (Views: 14.6ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$GrKj4TG2R6R03bdoN60.1uRRnKoCu7aJLK5WiBctYr6ahvDrXdG0K', '2020-04-17 09:46:20', '2020-04-17 09:46:20')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 09:46:20', '2020-04-17 09:46:20', 8)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'b@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーB', 'b@example.com', '$2a$04$RXcyYJDGBmD0jC/0g/sVJ.2vNtf1fo3MFFsfjQ9jBel3W8VCXqW1a', '2020-04-17 09:46:20', '2020-04-17 09:46:20')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-17 18:46:20 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (1.2ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2020-04-17 18:46:20 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"email"=>"b@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'b@example.com' LIMIT 1[0m
+Redirected to http://127.0.0.1:53224/
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+Started GET "/" for 127.0.0.1 at 2020-04-17 18:46:20 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 9 LIMIT 1[0m
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 9 ORDER BY `tasks`.`created_at` DESC[0m
+  Rendered tasks/index.html.slim within layouts/application (1.6ms)
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$aoDD4.t5V6BYD2Nx4XDtW.ckkvazCbn5fn15mDQKnJpbu5xFbzrNi', '2020-04-17 11:18:48', '2020-04-17 11:18:48')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.4ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:18:48', '2020-04-17 11:18:48', 10)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-17 20:18:50 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (32.0ms)
+Completed 200 OK in 861ms (Views: 853.8ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application-6d059d6f59dcd90f5dcda630e3de3d7f24f3f2246b48bf7da55581c1868c0f7a.css" for 127.0.0.1 at 2020-04-17 20:18:51 +0900
+Started GET "/assets/application-4754cca90f897f152786b9c41a39faf8893c503c031056c9d07f896159dc826c.js" for 127.0.0.1 at 2020-04-17 20:18:51 +0900
+Started POST "/login" for 127.0.0.1 at 2020-04-17 20:18:52 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"email"=>"a@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'a@example.com' LIMIT 1[0m
+Redirected to http://127.0.0.1:53659/
+Completed 302 Found in 10ms (ActiveRecord: 1.0ms)
+Started GET "/" for 127.0.0.1 at 2020-04-17 20:18:52 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 10 LIMIT 1[0m
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 10 ORDER BY `tasks`.`created_at` DESC[0m
+  Rendered tasks/index.html.slim within layouts/application (12.2ms)
+Completed 200 OK in 29ms (Views: 15.2ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$RAhEbHyBsOuYscU905nevucD90.oi/rDkLW8.xQ9j5R04r2OKMrAC', '2020-04-17 11:18:52', '2020-04-17 11:18:52')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.4ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:18:52', '2020-04-17 11:18:52', 11)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-17 20:18:52 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (0.7ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'b@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーB', 'b@example.com', '$2a$04$dVlNixeJQWj3CpXkrEXxgOJy.xSQXKxB7nF5rUj34HCWQLX2tz88i', '2020-04-17 11:18:52', '2020-04-17 11:18:52')[0m
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/login" for 127.0.0.1 at 2020-04-17 20:18:52 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"email"=>"b@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'b@example.com' LIMIT 1[0m
+Redirected to http://127.0.0.1:53659/
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+Started GET "/" for 127.0.0.1 at 2020-04-17 20:18:52 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 12 LIMIT 1[0m
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 12 ORDER BY `tasks`.`created_at` DESC[0m
+  Rendered tasks/index.html.slim within layouts/application (1.9ms)
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$UdfsKl7Ki4n.Yye09zwdqeftrEr9gZtfjzHZ8O0OKEPIq/BL7..ce', '2020-04-17 11:25:39', '2020-04-17 11:25:39')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.4ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:25:39', '2020-04-17 11:25:39', 13)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-17 20:25:41 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (20.8ms)
+Completed 200 OK in 651ms (Views: 642.9ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application-4754cca90f897f152786b9c41a39faf8893c503c031056c9d07f896159dc826c.js" for 127.0.0.1 at 2020-04-17 20:25:41 +0900
+Started GET "/assets/application-6d059d6f59dcd90f5dcda630e3de3d7f24f3f2246b48bf7da55581c1868c0f7a.css" for 127.0.0.1 at 2020-04-17 20:25:41 +0900
+Started POST "/login" for 127.0.0.1 at 2020-04-17 20:25:42 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"email"=>"a@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'a@example.com' LIMIT 1[0m
+Redirected to http://127.0.0.1:53825/
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2020-04-17 20:25:42 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 13 ORDER BY `tasks`.`created_at` DESC[0m
+  Rendered tasks/index.html.slim within layouts/application (8.1ms)
+Completed 200 OK in 18ms (Views: 10.1ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (2.1ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$XyLorRaEPRw7wlEqxV6BmOe7QX/RGC5EYmG4LQNlMReObGc81A4mq', '2020-04-17 11:25:42', '2020-04-17 11:25:42')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.5ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:25:42', '2020-04-17 11:25:42', 14)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-17 20:25:42 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (1.3ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'b@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーB', 'b@example.com', '$2a$04$ZrrieEduT0vjKtiPxHnXpeRZ/4qwPyqT3cNWauJqyuYCyjpA.iUcO', '2020-04-17 11:25:42', '2020-04-17 11:25:42')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/login" for 127.0.0.1 at 2020-04-17 20:25:43 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"email"=>"b@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'b@example.com' LIMIT 1[0m
+Redirected to http://127.0.0.1:53825/
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2020-04-17 20:25:43 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 15 ORDER BY `tasks`.`created_at` DESC[0m
+  Rendered tasks/index.html.slim within layouts/application (1.6ms)
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$pMtTQkIsycDSZ1B.9NubNeWfJh.9XKswLX1zO9lZW1eF2WdhAHTJe', '2020-04-17 11:25:43', '2020-04-17 11:25:43')[0m
+  [1m[35m (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.4ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:25:43', '2020-04-17 11:25:43', 16)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-17 20:25:43 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2020-04-17 20:25:43 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"email"=>"a@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'a@example.com' LIMIT 1[0m
+Redirected to http://127.0.0.1:53825/
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2020-04-17 20:25:43 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 16 LIMIT 1[0m
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 16 ORDER BY `tasks`.`created_at` DESC[0m
+  Rendered tasks/index.html.slim within layouts/application (2.9ms)
+Completed 200 OK in 8ms (Views: 4.4ms | ActiveRecord: 1.4ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:25:43', '2020-04-17 11:25:43', 16)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/tasks/13" for 127.0.0.1 at 2020-04-17 20:25:43 +0900
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 16 LIMIT 1[0m
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT  `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 16 AND `tasks`.`id` = 13 LIMIT 1[0m
+  Rendering tasks/show.html.slim within layouts/application
+  Rendered tasks/show.html.slim within layouts/application (16.4ms)
+Completed 200 OK in 26ms (Views: 18.3ms | ActiveRecord: 1.5ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$mWj.c3y9Bvyc/sVIPt8MN.DMPi3CaKqcZwjLXdwgpC.0aNXZSkN/W', '2020-04-17 11:27:21', '2020-04-17 11:27:21')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:27:21', '2020-04-17 11:27:21', 17)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:27:21', '2020-04-17 11:27:21', 17)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-17 20:27:23 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (27.9ms)
+Completed 200 OK in 827ms (Views: 819.5ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application-4754cca90f897f152786b9c41a39faf8893c503c031056c9d07f896159dc826c.js" for 127.0.0.1 at 2020-04-17 20:27:23 +0900
+Started GET "/assets/application-6d059d6f59dcd90f5dcda630e3de3d7f24f3f2246b48bf7da55581c1868c0f7a.css" for 127.0.0.1 at 2020-04-17 20:27:23 +0900
+Started POST "/login" for 127.0.0.1 at 2020-04-17 20:27:24 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"email"=>"a@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'a@example.com' LIMIT 1[0m
+Redirected to http://127.0.0.1:53873/
+Completed 302 Found in 6ms (ActiveRecord: 0.5ms)
+Started GET "/" for 127.0.0.1 at 2020-04-17 20:27:24 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 17 LIMIT 1[0m
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 17 ORDER BY `tasks`.`created_at` DESC[0m
+  Rendered tasks/index.html.slim within layouts/application (11.8ms)
+Completed 200 OK in 23ms (Views: 14.5ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$WoSrcm8N5SZCMw8fsURcJOmDSQY4MzbJxHWmfd2BnkVqK//UNxlRG', '2020-04-17 11:27:24', '2020-04-17 11:27:24')[0m
+  [1m[35m (2.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (1.1ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:27:24', '2020-04-17 11:27:24', 18)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (1.4ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:27:24', '2020-04-17 11:27:24', 18)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-17 20:27:24 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'b@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーB', 'b@example.com', '$2a$04$CoiEs7jGfBIMP1pmj2Xs7uKb28H0DuC5IUksiDtzvu/aJfXEwgxgC', '2020-04-17 11:27:24', '2020-04-17 11:27:24')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/login" for 127.0.0.1 at 2020-04-17 20:27:25 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"email"=>"b@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'b@example.com' LIMIT 1[0m
+Redirected to http://127.0.0.1:53873/
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+Started GET "/" for 127.0.0.1 at 2020-04-17 20:27:25 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 19 LIMIT 1[0m
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 19 ORDER BY `tasks`.`created_at` DESC[0m
+  Rendered tasks/index.html.slim within layouts/application (1.5ms)
+Completed 200 OK in 6ms (Views: 2.8ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$UTmwS4mDh8ZK14nfePGx5OkIkamIX6BDA37C4xsz5uJ2LuDStS2Pa', '2020-04-17 11:27:25', '2020-04-17 11:27:25')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.4ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:27:25', '2020-04-17 11:27:25', 20)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.5ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:27:25', '2020-04-17 11:27:25', 20)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-17 20:27:25 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (1.3ms)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2020-04-17 20:27:25 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"email"=>"a@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'a@example.com' LIMIT 1[0m
+Redirected to http://127.0.0.1:53873/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2020-04-17 20:27:25 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 20 LIMIT 1[0m
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 20 ORDER BY `tasks`.`created_at` DESC[0m
+  Rendered tasks/index.html.slim within layouts/application (2.1ms)
+Completed 200 OK in 7ms (Views: 3.7ms | ActiveRecord: 0.9ms)
+Started GET "/tasks/18" for 127.0.0.1 at 2020-04-17 20:27:25 +0900
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 20 LIMIT 1[0m
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 20 AND `tasks`.`id` = 18 LIMIT 1[0m
+  Rendering tasks/show.html.slim within layouts/application
+  Rendered tasks/show.html.slim within layouts/application (16.3ms)
+Completed 200 OK in 23ms (Views: 17.6ms | ActiveRecord: 0.8ms)
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$fInZFK5/ObvxHSPLa7TpH.f0tHDYZabZdesgBp8S/T9aM9MG1ANRi', '2020-04-17 11:30:31', '2020-04-17 11:30:31')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:30:31', '2020-04-17 11:30:31', 21)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:30:31', '2020-04-17 11:30:31', 21)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-17 20:30:32 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (23.9ms)
+Completed 200 OK in 645ms (Views: 632.2ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application-4754cca90f897f152786b9c41a39faf8893c503c031056c9d07f896159dc826c.js" for 127.0.0.1 at 2020-04-17 20:30:33 +0900
+Started GET "/assets/application-6d059d6f59dcd90f5dcda630e3de3d7f24f3f2246b48bf7da55581c1868c0f7a.css" for 127.0.0.1 at 2020-04-17 20:30:33 +0900
+Started POST "/login" for 127.0.0.1 at 2020-04-17 20:30:33 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"email"=>"a@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'a@example.com' LIMIT 1[0m
+Redirected to http://127.0.0.1:53958/
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2020-04-17 20:30:33 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 21 LIMIT 1[0m
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 21 ORDER BY `tasks`.`created_at` DESC[0m
+  Rendered tasks/index.html.slim within layouts/application (8.7ms)
+Completed 200 OK in 19ms (Views: 11.1ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (2.2ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$QNAhnW85ySaxLeuC98sZ2e518xhxn1/jytd1e4xe9ja.fnHeCtMU6', '2020-04-17 11:30:33', '2020-04-17 11:30:33')[0m
+  [1m[35m (2.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.5ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:30:33', '2020-04-17 11:30:33', 22)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.9ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:30:33', '2020-04-17 11:30:33', 22)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-17 20:30:33 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (0.9ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'b@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーB', 'b@example.com', '$2a$04$VoxmeCGFO73X2K.ZNaV28ugirDEcK8XNu9/O4mJqrqequzAsrYaj2', '2020-04-17 11:30:34', '2020-04-17 11:30:34')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/login" for 127.0.0.1 at 2020-04-17 20:30:34 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"email"=>"b@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'b@example.com' LIMIT 1[0m
+Redirected to http://127.0.0.1:53958/
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms)
+Started GET "/" for 127.0.0.1 at 2020-04-17 20:30:34 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 23 LIMIT 1[0m
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 23 ORDER BY `tasks`.`created_at` DESC[0m
+  Rendered tasks/index.html.slim within layouts/application (1.6ms)
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (3.1ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$VaIEof44CiaYD9.6FJMN6OxMGo7rZEjqV.luMinANK0wJ2gr4DqAW', '2020-04-17 11:30:34', '2020-04-17 11:30:34')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.5ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:30:34', '2020-04-17 11:30:34', 24)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.6ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:30:34', '2020-04-17 11:30:34', 24)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-17 20:30:34 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (0.9ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2020-04-17 20:30:34 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"email"=>"a@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'a@example.com' LIMIT 1[0m
+Redirected to http://127.0.0.1:53958/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2020-04-17 20:30:34 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1[0m
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 24 ORDER BY `tasks`.`created_at` DESC[0m
+  Rendered tasks/index.html.slim within layouts/application (2.9ms)
+Completed 200 OK in 7ms (Views: 4.2ms | ActiveRecord: 1.3ms)
+Started GET "/tasks/24" for 127.0.0.1 at 2020-04-17 20:30:34 +0900
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1[0m
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT  `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 24 AND `tasks`.`id` = 24 LIMIT 1[0m
+  Rendering tasks/show.html.slim within layouts/application
+  Rendered tasks/show.html.slim within layouts/application (12.8ms)
+Completed 200 OK in 21ms (Views: 16.5ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$QgwXEZHqHGYfnFdQgIgduO0XZ3VzQVWJiq3kDsSnA1PCeVYcCPtAu', '2020-04-17 11:37:55', '2020-04-17 11:37:55')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:37:55', '2020-04-17 11:37:55', 25)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-17 20:37:57 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (24.1ms)
+Completed 200 OK in 669ms (Views: 660.0ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application-4754cca90f897f152786b9c41a39faf8893c503c031056c9d07f896159dc826c.js" for 127.0.0.1 at 2020-04-17 20:37:57 +0900
+Started GET "/assets/application-6d059d6f59dcd90f5dcda630e3de3d7f24f3f2246b48bf7da55581c1868c0f7a.css" for 127.0.0.1 at 2020-04-17 20:37:57 +0900
+Started POST "/login" for 127.0.0.1 at 2020-04-17 20:37:58 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"email"=>"a@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'a@example.com' LIMIT 1[0m
+Redirected to http://127.0.0.1:54134/
+Completed 302 Found in 6ms (ActiveRecord: 0.8ms)
+Started GET "/" for 127.0.0.1 at 2020-04-17 20:37:58 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 25 LIMIT 1[0m
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 25 ORDER BY `tasks`.`created_at` DESC[0m
+  Rendered tasks/index.html.slim within layouts/application (8.2ms)
+Completed 200 OK in 19ms (Views: 10.4ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (4.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$xcQ648khDaSY3wT9HY8kT.3Kk47fVJGbmtl3CcisTK2wkKnf60DKC', '2020-04-17 11:37:58', '2020-04-17 11:37:58')[0m
+  [1m[35m (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.5ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:37:58', '2020-04-17 11:37:58', 26)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-17 20:37:58 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (2.0ms)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'b@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーB', 'b@example.com', '$2a$04$uIPdJ0N7b2qq9ww7ydAVwuh2qa6xzcnCqAR6fdGad6CiuQawhG51q', '2020-04-17 11:37:58', '2020-04-17 11:37:58')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/login" for 127.0.0.1 at 2020-04-17 20:37:59 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"email"=>"b@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'b@example.com' LIMIT 1[0m
+Redirected to http://127.0.0.1:54134/
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2020-04-17 20:37:59 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 27 LIMIT 1[0m
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 27 ORDER BY `tasks`.`created_at` DESC[0m
+  Rendered tasks/index.html.slim within layouts/application (1.3ms)
+Completed 200 OK in 5ms (Views: 2.3ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (3.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$1LJuM1HKsOQxF.u0D06u3eDfSx8lrR/k594AwDulO1XHc3FxgUs/i', '2020-04-17 11:37:59', '2020-04-17 11:37:59')[0m
+  [1m[35m (2.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.6ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:37:59', '2020-04-17 11:37:59', 28)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-17 20:37:59 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (1.5ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2020-04-17 20:37:59 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"email"=>"a@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'a@example.com' LIMIT 1[0m
+Redirected to http://127.0.0.1:54134/
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+Started GET "/" for 127.0.0.1 at 2020-04-17 20:37:59 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 28 LIMIT 1[0m
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 28 ORDER BY `tasks`.`created_at` DESC[0m
+  Rendered tasks/index.html.slim within layouts/application (2.7ms)
+Completed 200 OK in 7ms (Views: 4.0ms | ActiveRecord: 1.0ms)
+Started GET "/tasks/28" for 127.0.0.1 at 2020-04-17 20:37:59 +0900
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"28"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 28 LIMIT 1[0m
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT  `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 28 AND `tasks`.`id` = 28 LIMIT 1[0m
+  Rendering tasks/show.html.slim within layouts/application
+  Rendered tasks/show.html.slim within layouts/application (11.7ms)
+Completed 200 OK in 17ms (Views: 13.4ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$5K9rM7Xnn5kVCeNholvD9OJSi.eYEDT3MRG9kqlGmGPTqENqNfhZC', '2020-04-17 11:37:59', '2020-04-17 11:37:59')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:37:59', '2020-04-17 11:37:59', 29)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-17 20:37:59 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (1.2ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2020-04-17 20:38:00 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"email"=>"a@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'a@example.com' LIMIT 1[0m
+Redirected to http://127.0.0.1:54134/
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2020-04-17 20:38:00 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 29 LIMIT 1[0m
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 29 ORDER BY `tasks`.`created_at` DESC[0m
+  Rendered tasks/index.html.slim within layouts/application (2.2ms)
+Completed 200 OK in 7ms (Views: 3.6ms | ActiveRecord: 1.0ms)
+Started GET "/tasks/new" for 127.0.0.1 at 2020-04-17 20:38:00 +0900
+Processing by TasksController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 29 LIMIT 1[0m
+  Rendering tasks/new.html.slim within layouts/application
+  Rendered tasks/_form.html.slim (9.6ms)
+  Rendered tasks/new.html.slim within layouts/application (14.8ms)
+Completed 200 OK in 22ms (Views: 16.4ms | ActiveRecord: 0.4ms)
+Started POST "/tasks" for 127.0.0.1 at 2020-04-17 20:38:00 +0900
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "task"=>{"name"=>"新規作成のテストを書く", "description"=>""}, "commit"=>"登録する"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 29 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('新規作成のテストを書く', '', '2020-04-17 11:38:00', '2020-04-17 11:38:00', 29)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:54134/tasks
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+Started GET "/tasks" for 127.0.0.1 at 2020-04-17 20:38:00 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 29 LIMIT 1[0m
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 29 ORDER BY `tasks`.`created_at` DESC[0m
+  Rendered tasks/index.html.slim within layouts/application (2.8ms)
+Completed 200 OK in 7ms (Views: 4.1ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('ユーザーA', 'a@example.com', '$2a$04$yQm0yCFlv7cLQSEWVLOPyOCsmIQSJiCu48UsdD1ZSy94vJcbFKuYy', '2020-04-17 11:38:00', '2020-04-17 11:38:00')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (1.3ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('最初のタスク', 'RSpec&FactoriBotを準備する', '2020-04-17 11:38:00', '2020-04-17 11:38:00', 30)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-04-17 20:38:00 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2020-04-17 20:38:01 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"email"=>"a@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'a@example.com' LIMIT 1[0m
+Redirected to http://127.0.0.1:54134/
+Completed 302 Found in 4ms (ActiveRecord: 1.1ms)
+Started GET "/" for 127.0.0.1 at 2020-04-17 20:38:01 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 30 LIMIT 1[0m
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`user_id` = 30 ORDER BY `tasks`.`created_at` DESC[0m
+  Rendered tasks/index.html.slim within layouts/application (2.5ms)
+Completed 200 OK in 7ms (Views: 3.7ms | ActiveRecord: 1.2ms)
+Started GET "/tasks/new" for 127.0.0.1 at 2020-04-17 20:38:01 +0900
+Processing by TasksController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 30 LIMIT 1[0m
+  Rendering tasks/new.html.slim within layouts/application
+  Rendered tasks/_form.html.slim (2.1ms)
+  Rendered tasks/new.html.slim within layouts/application (2.7ms)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 0.5ms)
+Started POST "/tasks" for 127.0.0.1 at 2020-04-17 20:38:01 +0900
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "task"=>{"name"=>"", "description"=>""}, "commit"=>"登録する"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 30 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering tasks/new.html.slim within layouts/application
+  Rendered tasks/_form.html.slim (2.4ms)
+  Rendered tasks/new.html.slim within layouts/application (2.7ms)
+Completed 200 OK in 8ms (Views: 4.7ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (2.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS `taskleaf_test`[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE `taskleaf_test` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS `tasks` CASCADE[0m
+  [1m[35m (20.8ms)[0m  [1m[35mCREATE TABLE `tasks` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(30) NOT NULL, `description` text, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `user_id` bigint NOT NULL,  INDEX `index_tasks_on_user_id`  (`user_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS `users` CASCADE[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255) NOT NULL, `email` varchar(255) NOT NULL, `password_digest` varchar(255) NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `admin` tinyint(1) DEFAULT FALSE NOT NULL, UNIQUE INDEX `index_users_on_email`  (`email`)) ENGINE=InnoDB DEFAULT CHARSET=utf8[0m
+  [1m[35m (15.1ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES (20200415124147)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES
+(20200415055615),
+(20200413105816),
+(20200413230406),
+(20200414122414),
+(20200415080149);
+
+[0m
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'test', '2020-04-21 06:48:53', '2020-04-21 06:48:53')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@example.com' LIMIT 1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('テストユーザー', 'test@example.com', '$2a$04$K2q67grDoGz7visLouuBLuW.bCaeFqbmm2w2IE3NxSBYnsqoLdzwO', '2020-04-21 06:50:44', '2020-04-21 06:50:44')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO `tasks` (`name`, `description`, `created_at`, `updated_at`, `user_id`) VALUES ('メイラーSpecを書く', '送信したメールの内容を確認します', '2020-04-21 06:50:44', '2020-04-21 06:50:44', 1)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering task_mailer/creation_email.html.slim within layouts/mailer
+  Rendered task_mailer/creation_email.html.slim within layouts/mailer (11.6ms)
+  Rendering task_mailer/creation_email.text.slim within layouts/mailer
+  Rendered task_mailer/creation_email.text.slim within layouts/mailer (2.1ms)
+TaskMailer#creation_email: processed outbound mail in 25.1ms
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m

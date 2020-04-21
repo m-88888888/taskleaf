@@ -1,0 +1,99 @@
+D, [2020-04-19T15:36:05.335212 #29814] DEBUG -- :   [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+D, [2020-04-19T15:36:05.337524 #29814] DEBUG -- :   [1m[35m (1.8ms)[0m  [1m[35mCREATE DATABASE `taskleaf_production` DEFAULT CHARACTER SET `utf8`[0m
+D, [2020-04-19T15:36:05.340834 #29814] DEBUG -- :   [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+D, [2020-04-19T15:36:05.386648 #29814] DEBUG -- :   [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+D, [2020-04-19T15:36:05.398939 #29814] DEBUG -- :   [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+D, [2020-04-19T15:36:05.399847 #29814] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('7410968178381677175', 0)[0m
+D, [2020-04-19T15:36:05.412396 #29814] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+I, [2020-04-19T15:36:05.414742 #29814]  INFO -- : Migrating to CreateTasks (20200413105816)
+D, [2020-04-19T15:36:05.430179 #29814] DEBUG -- :   [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE `tasks` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `namee` varchar(255), `description` text, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+D, [2020-04-19T15:36:05.433037 #29814] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2020-04-19T15:36:05.434031 #29814] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200413105816')[0m
+D, [2020-04-19T15:36:05.434712 #29814] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+I, [2020-04-19T15:36:05.434884 #29814]  INFO -- : Migrating to ChangeTasksNameNotNull (20200413230406)
+D, [2020-04-19T15:36:05.439787 #29814] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('7410968178381677175')[0m
+D, [2020-04-19T15:49:28.361497 #30080] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+D, [2020-04-19T15:49:28.377292 #30080] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+D, [2020-04-19T15:49:28.382390 #30080] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+D, [2020-04-19T15:50:24.328888 #30129] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+D, [2020-04-19T15:50:24.335644 #30129] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+D, [2020-04-19T15:50:24.339398 #30129] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+D, [2020-04-19T15:50:24.340504 #30129] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'production', '2020-04-19 06:50:24', '2020-04-19 06:50:24')[0m
+D, [2020-04-19T15:50:24.341251 #30129] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+D, [2020-04-19T15:50:42.773909 #30201] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+D, [2020-04-19T15:50:42.791804 #30201] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+D, [2020-04-19T15:50:42.795758 #30201] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+D, [2020-04-19T15:50:42.797045 #30201] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+D, [2020-04-19T15:50:42.798314 #30201] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+D, [2020-04-19T15:50:42.799414 #30201] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+D, [2020-04-19T15:50:42.800648 #30201] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+D, [2020-04-19T15:57:41.124843 #30361] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+D, [2020-04-19T15:57:41.125562 #30361] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE `taskleaf_production` DEFAULT CHARACTER SET `utf8`[0m
+D, [2020-04-19T15:57:41.127164 #30361] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+D, [2020-04-19T15:57:41.145624 #30361] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('7410968178381677175', 0)[0m
+D, [2020-04-19T15:57:41.149622 #30361] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+I, [2020-04-19T15:57:41.150111 #30361]  INFO -- : Migrating to ChangeTasksNameNotNull (20200413230406)
+D, [2020-04-19T15:57:41.152307 #30361] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('7410968178381677175')[0m
+D, [2020-04-19T15:59:07.474949 #30721] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+D, [2020-04-19T15:59:07.488601 #30721] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+D, [2020-04-19T15:59:07.491219 #30721] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+D, [2020-04-19T15:59:07.492080 #30721] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+D, [2020-04-19T15:59:07.492886 #30721] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+D, [2020-04-19T15:59:07.493568 #30721] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+D, [2020-04-19T15:59:07.494242 #30721] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+D, [2020-04-19T15:59:42.004718 #30806] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+D, [2020-04-19T15:59:42.014105 #30806] DEBUG -- :   [1m[35m (8.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS `taskleaf_production`[0m
+D, [2020-04-19T15:59:51.489509 #30837] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+D, [2020-04-19T15:59:51.490406 #30837] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE `taskleaf_production` DEFAULT CHARACTER SET `utf8`[0m
+D, [2020-04-19T15:59:51.492672 #30837] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+D, [2020-04-19T15:59:51.522800 #30837] DEBUG -- :   [1m[35m (12.4ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+D, [2020-04-19T15:59:51.533023 #30837] DEBUG -- :   [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+D, [2020-04-19T15:59:51.534300 #30837] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('7410968178381677175', 0)[0m
+D, [2020-04-19T15:59:51.543398 #30837] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+I, [2020-04-19T15:59:51.544134 #30837]  INFO -- : Migrating to CreateTasks (20200413105816)
+D, [2020-04-19T15:59:51.554980 #30837] DEBUG -- :   [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE `tasks` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `description` text, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+D, [2020-04-19T15:59:51.558252 #30837] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2020-04-19T15:59:51.559348 #30837] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200413105816')[0m
+D, [2020-04-19T15:59:51.560313 #30837] DEBUG -- :   [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+I, [2020-04-19T15:59:51.560564 #30837]  INFO -- : Migrating to ChangeTasksNameNotNull (20200413230406)
+D, [2020-04-19T15:59:51.579853 #30837] DEBUG -- :   [1m[35m (16.2ms)[0m  [1m[35mALTER TABLE `tasks` CHANGE `name` `name` varchar(255) NOT NULL[0m
+D, [2020-04-19T15:59:51.581038 #30837] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+D, [2020-04-19T15:59:51.582489 #30837] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200413230406')[0m
+D, [2020-04-19T15:59:51.583375 #30837] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+I, [2020-04-19T15:59:51.583585 #30837]  INFO -- : Migrating to ChangeTasksNameLimit30 (20200414122414)
+D, [2020-04-19T15:59:51.604428 #30837] DEBUG -- :   [1m[35m (18.9ms)[0m  [1m[35mALTER TABLE `tasks` CHANGE `name` `name` varchar(30) NOT NULL[0m
+D, [2020-04-19T15:59:51.605531 #30837] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+D, [2020-04-19T15:59:51.606632 #30837] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200414122414')[0m
+D, [2020-04-19T15:59:51.607588 #30837] DEBUG -- :   [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+I, [2020-04-19T15:59:51.607710 #30837]  INFO -- : Migrating to CreateUsers (20200415055615)
+D, [2020-04-19T15:59:51.619777 #30837] DEBUG -- :   [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255) NOT NULL, `email` varchar(255) NOT NULL, `password_digest` varchar(255) NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, UNIQUE INDEX `index_users_on_email`  (`email`))[0m
+D, [2020-04-19T15:59:51.620780 #30837] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+D, [2020-04-19T15:59:51.621874 #30837] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200415055615')[0m
+D, [2020-04-19T15:59:51.622801 #30837] DEBUG -- :   [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+I, [2020-04-19T15:59:51.623029 #30837]  INFO -- : Migrating to AddAdminToUsers (20200415080149)
+D, [2020-04-19T15:59:51.642811 #30837] DEBUG -- :   [1m[35m (18.3ms)[0m  [1m[35mALTER TABLE `users` ADD `admin` tinyint(1) DEFAULT FALSE NOT NULL[0m
+D, [2020-04-19T15:59:51.647071 #30837] DEBUG -- :   [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+D, [2020-04-19T15:59:51.649543 #30837] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200415080149')[0m
+D, [2020-04-19T15:59:51.650825 #30837] DEBUG -- :   [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+I, [2020-04-19T15:59:51.651012 #30837]  INFO -- : Migrating to AddUserIdToTasks (20200415124147)
+D, [2020-04-19T15:59:51.653267 #30837] DEBUG -- :   [1m[35m (1.2ms)[0m  [1m[31mDELETE FROM tasks;[0m
+D, [2020-04-19T15:59:51.670078 #30837] DEBUG -- :   [1m[35m (16.1ms)[0m  [1m[35mALTER TABLE `tasks` ADD `user_id` bigint NOT NULL[0m
+D, [2020-04-19T15:59:51.687226 #30837] DEBUG -- :   [1m[35m (15.0ms)[0m  [1m[35mCREATE  INDEX `index_tasks_on_user_id`  ON `tasks` (`user_id`) [0m
+D, [2020-04-19T15:59:51.689690 #30837] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+D, [2020-04-19T15:59:51.692669 #30837] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200415124147')[0m
+D, [2020-04-19T15:59:51.695390 #30837] DEBUG -- :   [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+D, [2020-04-19T15:59:51.700827 #30837] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+D, [2020-04-19T15:59:51.740124 #30837] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+D, [2020-04-19T15:59:51.742676 #30837] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'production', '2020-04-19 06:59:51', '2020-04-19 06:59:51')[0m
+D, [2020-04-19T15:59:51.744139 #30837] DEBUG -- :   [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+D, [2020-04-19T15:59:51.744747 #30837] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('7410968178381677175')[0m
+I, [2020-04-19T16:00:52.551715 #30894]  INFO -- : [9f722210-b801-46d0-a1ad-79c03d0e49fd] Started GET "/" for 127.0.0.1 at 2020-04-19 16:00:52 +0900
+I, [2020-04-19T16:00:52.553564 #30894]  INFO -- : [9f722210-b801-46d0-a1ad-79c03d0e49fd] Processing by TasksController#index as HTML
+I, [2020-04-19T16:00:52.562977 #30894]  INFO -- : [9f722210-b801-46d0-a1ad-79c03d0e49fd] Redirected to http://localhost:3000/login
+I, [2020-04-19T16:00:52.563158 #30894]  INFO -- : [9f722210-b801-46d0-a1ad-79c03d0e49fd] Filter chain halted as :login_required rendered or redirected
+I, [2020-04-19T16:00:52.563315 #30894]  INFO -- : [9f722210-b801-46d0-a1ad-79c03d0e49fd] Completed 302 Found in 10ms
+I, [2020-04-19T16:00:52.568300 #30894]  INFO -- : [051e255a-f6fa-4fb1-9209-6ba381dcdb66] Started GET "/login" for 127.0.0.1 at 2020-04-19 16:00:52 +0900
+I, [2020-04-19T16:00:52.569140 #30894]  INFO -- : [051e255a-f6fa-4fb1-9209-6ba381dcdb66] Processing by SessionsController#new as HTML
+I, [2020-04-19T16:00:52.573906 #30894]  INFO -- : [051e255a-f6fa-4fb1-9209-6ba381dcdb66]   Rendering sessions/new.html.slim within layouts/application
+I, [2020-04-19T16:00:52.599736 #30894]  INFO -- : [051e255a-f6fa-4fb1-9209-6ba381dcdb66]   Rendered sessions/new.html.slim within layouts/application (25.6ms)
+I, [2020-04-19T16:00:52.607154 #30894]  INFO -- : [051e255a-f6fa-4fb1-9209-6ba381dcdb66] Completed 200 OK in 38ms (Views: 35.3ms)
